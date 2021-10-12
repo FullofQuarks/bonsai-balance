@@ -20,8 +20,8 @@ namespace BonsaiBalance.Api.Models
         {
             Language = "en",
             Products = new List<string>{"auth"},
-            ClientId = "61396b4124fba3000f7dc136",
-            Secret = "73de1d8b3674d59346999529d63989",
+            ClientId = "",
+            Secret = "",
             User = new PlaidUser
             {
                 ClientUserId = "1"
