@@ -12,4 +12,10 @@ export class PlaidService {
     public createLinkToken(): Observable<PlaidLinkTokenResponse> {
         return this.httpService.get<PlaidLinkTokenResponse>('https://localhost:5020/plaid/token');
     }
+
+    public exchangeLinkToken(publicToken: string) {
+        return this.httpService.post<any>(`https://localhost:5020/plaid/token`, {
+            publicToken: publicToken
+        });
+    }
 }

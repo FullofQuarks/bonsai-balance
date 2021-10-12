@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using BonsaiBalance.Api.Interfaces.Converters;
 using BonsaiBalance.Api.Interfaces.UseCases;
+using BonsaiBalance.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BonsaiBalance.Api.Controllers
@@ -33,11 +34,11 @@ namespace BonsaiBalance.Api.Controllers
             return Ok(_plaidTokenResponseConverter.Convert(tokenResponse));
         }
 
-        [HttpPost("token/{publicToken}", Name = "ExchangeForAccessToken")]
-        public async Task<ActionResult> ExchangeTokenForAccess([FromRoute] string publicToken)
+        [HttpPost("token", Name = "ExchangeForAccessToken")]
+        public async Task<ActionResult> ExchangeTokenForAccess([FromBody] ExchangeForAccessTokenRequest publicToken)
         {
-            var response = await _plaidExchangeLinkTokenForAccessUseCase.Execute(publicToken);
-            return Ok(_plaidExchangeResponseConverter.Convert(response));
+            var response = await _plaidExchangeLinkTokenForAccessUseCase.Execute(publicToken.PublicToken);
+            return NoContent();
         }
     }
 }

@@ -11,6 +11,8 @@ import { PlaidLinkTokenResponse } from '../../models/plaid/plaid-link-token-resp
 })
 export class PlaidLinkComponent implements OnInit {
     public linkToken!: string;
+    public success: boolean = false;
+
     constructor(private plaidService: PlaidService) {}
 
     public ngOnInit(): void {
@@ -23,22 +25,17 @@ export class PlaidLinkComponent implements OnInit {
     }
 
     public onPlaidSuccess($event: PlaidOnSuccessArgs): void {
-        console.warn('Success:', $event);
+        this.plaidService
+            .exchangeLinkToken($event.token)
+            .pipe(first())
+            .subscribe(response => (this.success = true));
     }
 
-    public onPlaidExit($event: PlaidOnExitArgs): void {
-        console.warn('Exit', $event);
-    }
+    public onPlaidExit($event: PlaidOnExitArgs): void {}
 
-    public onPlaidLoad($event: any): void {
-        console.warn('Load', $event);
-    }
+    public onPlaidLoad($event: any): void {}
 
-    public onPlaidEvent($event: PlaidOnEventArgs): void {
-        console.warn('Event', $event);
-    }
+    public onPlaidEvent($event: PlaidOnEventArgs): void {}
 
-    public onPlaidClick($event: any): void {
-        console.warn('Click', $event);
-    }
+    public onPlaidClick($event: any): void {}
 }
