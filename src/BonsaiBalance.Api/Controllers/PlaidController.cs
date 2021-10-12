@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using BonsaiBalance.Api.Interfaces.Converters;
+using BonsaiBalance.Api.Interfaces.UseCases;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BonsaiBalance.Api.Controllers
@@ -7,10 +10,34 @@ namespace BonsaiBalance.Api.Controllers
     [ApiConventionType(typeof(DefaultApiConventions))]
     public class PlaidController : ControllerBase
     {
-        [HttpGet("token", Name = "CreateLinkToken")]
-        public ActionResult CreateLinkToken()
+        private readonly ICreateLinkTokenUseCase _createLinkTokenUseCase;
+        private readonly IPlaidExchangeLinkTokenForAccessUseCase _plaidExchangeLinkTokenForAccessUseCase;
+        private readonly IPlaidTokenResponseConverter _plaidTokenResponseConverter;
+        private readonly IPlaidExchangeResponseConverter _plaidExchangeResponseConverter;
+
+        public PlaidController(ICreateLinkTokenUseCase createLinkTokenUseCase,
+            IPlaidTokenResponseConverter plaidTokenResponseConverter,
+            IPlaidExchangeLinkTokenForAccessUseCase plaidExchangeLinkTokenForAccessUseCase,
+            IPlaidExchangeResponseConverter plaidExchangeResponseConverter)
         {
-            return NoContent();
+            _createLinkTokenUseCase = createLinkTokenUseCase;
+            _plaidTokenResponseConverter = plaidTokenResponseConverter;
+            _plaidExchangeLinkTokenForAccessUseCase = plaidExchangeLinkTokenForAccessUseCase;
+            _plaidExchangeResponseConverter = plaidExchangeResponseConverter;
+        }
+
+        [HttpGet("token", Name = "CreateLinkToken")]
+        public async Task<ActionResult> CreateLinkToken()
+        {
+            var tokenResponse = await _createLinkTokenUseCase.Execute();
+            return Ok(_plaidTokenResponseConverter.Convert(tokenResponse));
+        }
+
+        [HttpPost("token/{publicToken}", Name = "ExchangeForAccessToken")]
+        public async Task<ActionResult> ExchangeTokenForAccess([FromRoute] string publicToken)
+        {
+            var response = await _plaidExchangeLinkTokenForAccessUseCase.Execute(publicToken);
+            return Ok(_plaidExchangeResponseConverter.Convert(response));
         }
     }
 }

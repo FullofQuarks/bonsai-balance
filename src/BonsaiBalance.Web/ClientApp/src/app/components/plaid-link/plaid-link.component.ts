@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaidOnEventArgs, PlaidOnExitArgs, PlaidOnSuccessArgs } from 'ngx-plaid-link';
 import { PlaidService } from '../../services/plaid.service';
-import { DEFAULT_PLAID_TOKEN_REQUEST } from '../../models/plaid-link-token-request';
+import { first } from 'rxjs/operators';
+import { PlaidLinkTokenResponse } from '../../models/plaid/plaid-link-token-response';
 
 @Component({
     selector: 'app-plaid-link',
@@ -9,24 +10,35 @@ import { DEFAULT_PLAID_TOKEN_REQUEST } from '../../models/plaid-link-token-reque
     styleUrls: ['./plaid-link.component.scss']
 })
 export class PlaidLinkComponent implements OnInit {
+    public linkToken!: string;
     constructor(private plaidService: PlaidService) {}
 
-    ngOnInit(): void {
-        this.plaidService.createLinkToken(DEFAULT_PLAID_TOKEN_REQUEST).subscribe(response => {
-            debugger;
-            console.table(response);
-        });
+    public ngOnInit(): void {
+        this.plaidService
+            .createLinkToken()
+            .pipe(first())
+            .subscribe((response: PlaidLinkTokenResponse) => {
+                this.linkToken = response.linkToken;
+            });
     }
 
-    onPlaidSuccess($event: PlaidOnSuccessArgs) {}
-
-    onPlaidExit($event: PlaidOnExitArgs) {
-        console.warn($event);
+    public onPlaidSuccess($event: PlaidOnSuccessArgs): void {
+        console.warn('Success:', $event);
     }
 
-    onPlaidLoad($event: any) {}
+    public onPlaidExit($event: PlaidOnExitArgs): void {
+        console.warn('Exit', $event);
+    }
 
-    onPlaidEvent($event: PlaidOnEventArgs) {}
+    public onPlaidLoad($event: any): void {
+        console.warn('Load', $event);
+    }
 
-    onPlaidClick($event: any) {}
+    public onPlaidEvent($event: PlaidOnEventArgs): void {
+        console.warn('Event', $event);
+    }
+
+    public onPlaidClick($event: any): void {
+        console.warn('Click', $event);
+    }
 }
