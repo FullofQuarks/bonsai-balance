@@ -25,6 +25,8 @@ namespace BonsaiBalance.Api.UseCases
                 PublicToken = publicToken
             };
             var response = await _plaidService.ExchangeForAccess(request);
+
+            // TODO Save access token
             return response;
         }
     }
