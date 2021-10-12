@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using BonsaiBalance.Api.Interfaces.UseCases;
 using BonsaiBalance.Api.Services;
+using BonsaiBalance.Api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BonsaiBalance.Api.Controllers

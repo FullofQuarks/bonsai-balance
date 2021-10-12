@@ -1,5 +1,6 @@
 using BonsaiBalance.Api.Interfaces.UseCases;
 using BonsaiBalance.Api.Services;
+using BonsaiBalance.Api.Services.Interfaces;
 using BonsaiBalance.Api.UseCases;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,10 @@ namespace BonsaiBalance.Api
                 Configuration.GetSection("BonsaiBalanceDatabaseSettings"));
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // Services
             services.AddScoped<ITransactionsService, TransactionsService>();
+            services.AddScoped<IPlaidService, PlaidService>();
 
             // Use cases
             services.AddTransient<IGetBalanceForUserUseCase, GetBalanceForUserUseCase>();
