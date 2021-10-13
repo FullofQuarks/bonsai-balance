@@ -1,0 +1,16 @@
+<p>Trying out plaid</p>
+<div *ngIf="linkToken">
+    <mr-ngx-plaid-link-button
+        env="sandbox"
+        [token]="linkToken"
+        [countryCodes]="['US']"
+        (Success)="onPlaidSuccess($event)"
+        (Exit)="onPlaidExit($event)"
+        (Load)="onPlaidLoad($event)"
+        (Event)="onPlaidEvent($event)"
+        className="btn btn-danger"
+        buttonText="Link Your Bank Account"
+        (Click)="onPlaidClick($event)"
+    ></mr-ngx-plaid-link-button>
+</div>
+<div *ngIf="success">Successfully linked account!</div>

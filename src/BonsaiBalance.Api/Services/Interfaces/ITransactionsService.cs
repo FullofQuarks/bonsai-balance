@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BonsaiBalance.Api.Entities;
 
-namespace BonsaiBalance.Api.Services
+namespace BonsaiBalance.Api.Services.Interfaces
 {
     public interface ITransactionsService
     {

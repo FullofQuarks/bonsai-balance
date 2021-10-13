@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BonsaiBalance.Api.Entities;
 using BonsaiBalance.Api.Interfaces.UseCases;
-using BonsaiBalance.Api.Services;
+using BonsaiBalance.Api.Services.Interfaces;
 
 namespace BonsaiBalance.Api.UseCases
 {
