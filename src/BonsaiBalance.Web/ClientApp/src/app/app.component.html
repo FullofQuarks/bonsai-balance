@@ -1,3 +1,9 @@
-<div class="btn btn-primary">Bootstrap Button</div>
-<router-outlet></router-outlet>
-<app-plaid-link></app-plaid-link>
+<div class="wrapper d-flex flex-row">
+    <div class="sidebar">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="main">
+        <app-plaid-link></app-plaid-link>
+        <router-outlet></router-outlet>
+    </div>
+</div>
