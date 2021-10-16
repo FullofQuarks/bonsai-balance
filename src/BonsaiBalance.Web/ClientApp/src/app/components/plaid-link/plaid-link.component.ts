@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaidOnEventArgs, PlaidOnExitArgs, PlaidOnSuccessArgs } from 'ngx-plaid-link';
 import { PlaidService } from '../../services/plaid.service';
 import { first } from 'rxjs/operators';
-import { PlaidLinkTokenResponse } from '../../models/plaid/plaid-link-token-response';
+import { PlaidLinkTokenResponse } from '../../common/models/plaid/plaid-link-token-response';
 
 @Component({
     selector: 'app-plaid-link',
