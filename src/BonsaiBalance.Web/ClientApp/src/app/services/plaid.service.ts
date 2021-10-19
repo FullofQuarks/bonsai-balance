@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PlaidLinkTokenResponse } from '../models/plaid/plaid-link-token-response';
+import { PlaidLinkTokenResponse } from '../common/models/plaid/plaid-link-token-response';
 
 @Injectable({
     providedIn: 'root'
