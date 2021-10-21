@@ -5,11 +5,11 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["BonsaiBalance.Web.csproj", "BonsaiBalance.Web/"]
 RUN dotnet restore "BonsaiBalance.Web/BonsaiBalance.Web.csproj"
-RUN ls
-RUN ls "src/BonsaiBalance.Web/"
-COPY . .
+COPY . "BonsaiBalance.Web"
+RUN apt-get update -yq && apt-get upgrade -yq && apt-get install -yq curl git --no-install-recommends
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get install -yq nodejs build-essential --no-install-recommends
+RUN npm install -g npm
 WORKDIR "/src/BonsaiBalance.Web"
-RUN ls "src/BonsaiBalance.Web/"
 RUN dotnet build "BonsaiBalance.Web.csproj" -c Release -o /app/build
 
 FROM build AS publish
