@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BonsaiBalance.Api.Entities;
+using BonsaiBalance.Api.Services.Interfaces;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 

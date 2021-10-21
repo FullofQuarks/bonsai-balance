@@ -1,0 +1,27 @@
+.logo-text {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.side-bar-container {
+    background-color: #89969f;
+}
+
+.side-bar-item {
+    padding: 1rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.side-bar-text {
+    border-radius: 20% / 90%;
+    background-color: #b8c5d0;
+    padding: 1rem 1rem;
+    min-width: 8rem;
+    &:hover {
+        background-color: #d1d9e0;
+    }
+}
+.active {
+    background-color: #f6f8f9;
+}
