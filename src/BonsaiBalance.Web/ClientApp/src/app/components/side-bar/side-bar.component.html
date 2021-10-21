@@ -15,11 +15,11 @@
     </svg>
     <div class="logo-text pb-2 text-center">Bonsai Balance</div>
     <div
-        *ngFor="let item of this.sideBarItems"
+        *ngFor="let sideBarItem of this.sideBarItems"
         class="side-bar-item"
-        [ngClass]="item === this.selectedTab ? 'active' : ''"
-        (click)="this.setSelectedTab(item)"
+        [ngClass]="sideBarItem.name === this.selectedTab.name ? 'active' : ''"
+        (click)="this.setSelectedTab(sideBarItem)"
     >
-        <div class="side-bar-text text-center">{{ item }}</div>
+        <div class="side-bar-text text-center">{{ sideBarItem.name }}</div>
     </div>
 </div>
