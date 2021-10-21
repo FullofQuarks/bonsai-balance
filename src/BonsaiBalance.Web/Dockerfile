@@ -5,8 +5,11 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["BonsaiBalance.Web.csproj", "BonsaiBalance.Web/"]
 RUN dotnet restore "BonsaiBalance.Web/BonsaiBalance.Web.csproj"
+RUN ls
+RUN ls "src/BonsaiBalance.Web/"
 COPY . .
 WORKDIR "/src/BonsaiBalance.Web"
+RUN ls "src/BonsaiBalance.Web/"
 RUN dotnet build "BonsaiBalance.Web.csproj" -c Release -o /app/build
 
 FROM build AS publish
