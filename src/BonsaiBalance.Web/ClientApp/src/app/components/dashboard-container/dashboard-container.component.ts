@@ -6,17 +6,17 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
     templateUrl: './dashboard-container.component.html',
     styleUrls: ['./dashboard-container.component.scss']
 })
-export class DashboardContainerComponent implements OnInit {
+export class DashboardContainerComponent {
     // NGX Canvas Options
-    legend: boolean = true;
+    legend: boolean = false;
     showLabels: boolean = true;
     animations: boolean = true;
     xAxis: boolean = true;
     yAxis: boolean = true;
     showYAxisLabel: boolean = true;
     showXAxisLabel: boolean = true;
-    xAxisLabel: string = 'Year';
-    yAxisLabel: string = 'Population';
+    xAxisLabel: string = '2021';
+    yAxisLabel: string = '';
     timeline: boolean = true;
     colorScheme: Color = {
         name: 'Name',
@@ -26,12 +26,13 @@ export class DashboardContainerComponent implements OnInit {
     };
 
     // NGX Canvas Data
-    testData = testData
-    view: [number, number] = [700, 300];
+    testData: any;
+    view: [number, number];
 
-    constructor() {}
-
-    ngOnInit(): void {}
+    constructor() {
+        this.testData = testData;
+        this.view = [0, 0];
+    }
 
     onSelect(event: any) {
         // Not Implemented
@@ -48,69 +49,109 @@ export class DashboardContainerComponent implements OnInit {
 
 export var testData = [
     {
-      "name": "Germany",
-      "series": [
-        {
-          "name": "1990",
-          "value": 62000000
-        },
-        {
-          "name": "2010",
-          "value": 73000000
-        },
-        {
-          "name": "2011",
-          "value": 89400000
-        }
-      ]
+        name: 'Spending',
+        series: [
+            {
+                name: 'Jan',
+                value: 1100
+            },
+            {
+                name: 'Feb',
+                value: 600
+            },
+            {
+                name: 'Mar',
+                value: 400
+            },
+            {
+                name: 'Apr',
+                value: 1200
+            },
+            {
+                name: 'May',
+                value: 1200
+            },
+            {
+                name: 'Jun',
+                value: 1200
+            },
+            {
+                name: 'Jul',
+                value: 1210
+            },
+            {
+                name: 'Aug',
+                value: 1200
+            },
+            {
+                name: 'Sep',
+                value: 999
+            },
+            {
+                name: 'Oct',
+                value: 2000
+            },
+            {
+                name: 'Nov',
+                value: 1400
+            },
+            {
+                name: 'Dec',
+                value: 1200
+            }
+        ]
     },
-  
     {
-      "name": "USA",
-      "series": [
-        {
-          "name": "1990",
-          "value": 250000000
-        },
-        {
-          "name": "2010",
-          "value": 309000000
-        },
-        {
-          "name": "2011",
-          "value": 311000000
-        }
-      ]
-    },
-  
-    {
-      "name": "France",
-      "series": [
-        {
-          "name": "1990",
-          "value": 58000000
-        },
-        {
-          "name": "2010",
-          "value": 50000020
-        },
-        {
-          "name": "2011",
-          "value": 58000000
-        }
-      ]
-    },
-    {
-      "name": "UK",
-      "series": [
-        {
-          "name": "1990",
-          "value": 57000000
-        },
-        {
-          "name": "2010",
-          "value": 62000000
-        }
-      ]
+        name: 'Budget',
+        series: [
+            {
+                name: 'Jan',
+                value: 1200
+            },
+            {
+                name: 'Feb',
+                value: 1200
+            },
+            {
+                name: 'Mar',
+                value: 1200
+            },
+            {
+                name: 'Apr',
+                value: 1200
+            },
+            {
+                name: 'May',
+                value: 1200
+            },
+            {
+                name: 'Jun',
+                value: 1200
+            },
+            {
+                name: 'Jul',
+                value: 1200
+            },
+            {
+                name: 'Aug',
+                value: 1200
+            },
+            {
+                name: 'Sep',
+                value: 1200
+            },
+            {
+                name: 'Oct',
+                value: 1200
+            },
+            {
+                name: 'Nov',
+                value: 1200
+            },
+            {
+                name: 'Dec',
+                value: 1200
+            }
+        ]
     }
-  ];
+];
