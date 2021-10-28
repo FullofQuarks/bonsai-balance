@@ -27,7 +27,6 @@ export const appSettingsInitializer = (
       return appSettingsInitializerService.current
         .toPromise()
         .then((appSettings: AppSettings)=>{
-          console.log('Hey', appSettings)
           appSettingService.settings = appSettings;
         })
     };
