@@ -18,14 +18,16 @@ export class AppSettingsService {
 }
 
 export const appSettingsInitializer = (
+  appSettingService: AppSettingsService,
   appSettingsInitializerService: AppSettingsInitializerService,
-  appSettingService: AppSettingsService) => {
+  ) => {
     return () => {
       appSettingsInitializerService.load();
 
       return appSettingsInitializerService.current
         .toPromise()
         .then((appSettings: AppSettings)=>{
+          console.log('Hey', appSettings)
           appSettingService.settings = appSettings;
         })
     };
