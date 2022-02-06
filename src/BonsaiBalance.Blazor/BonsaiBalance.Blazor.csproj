@@ -5,10 +5,13 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..</DockerfileContext>
+        <UserSecretsId>4756b658-d39c-4e58-89d9-d2b2111c7c6e</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.JSInterop" Version="6.0.1" />
+      <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
       <PackageReference Include="MongoDB.Driver" Version="2.14.1" />
     </ItemGroup>
 
