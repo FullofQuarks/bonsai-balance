@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BonsaiBalance.Web", "src\Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonsaiBalance.Api", "src\BonsaiBalance.Api\BonsaiBalance.Api.csproj", "{BCBC1EC3-7766-459A-99FF-C540F9D16D06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonsaiBalance.Blazor", "src\BonsaiBalance.Blazor\BonsaiBalance.Blazor.csproj", "{87AADFD6-6D14-4874-B5CF-3C30EA7282B0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{BCBC1EC3-7766-459A-99FF-C540F9D16D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCBC1EC3-7766-459A-99FF-C540F9D16D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCBC1EC3-7766-459A-99FF-C540F9D16D06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87AADFD6-6D14-4874-B5CF-3C30EA7282B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87AADFD6-6D14-4874-B5CF-3C30EA7282B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87AADFD6-6D14-4874-B5CF-3C30EA7282B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87AADFD6-6D14-4874-B5CF-3C30EA7282B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
