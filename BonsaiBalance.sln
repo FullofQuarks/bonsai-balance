@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonsaiBalance.Api", "src\BonsaiBalance.Api\BonsaiBalance.Api.csproj", "{BCBC1EC3-7766-459A-99FF-C540F9D16D06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BonsaiBalance.Api", "src\BonsaiBalance.Api\BonsaiBalance.Api.csproj", "{BCBC1EC3-7766-459A-99FF-C540F9D16D06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BonsaiBalance.Web", "BonsaiBalance.Web\BonsaiBalance.Web.csproj", "{F37E242C-534A-441B-B520-8FB1A7178807}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BCBC1EC3-7766-459A-99FF-C540F9D16D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCBC1EC3-7766-459A-99FF-C540F9D16D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCBC1EC3-7766-459A-99FF-C540F9D16D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37E242C-534A-441B-B520-8FB1A7178807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37E242C-534A-441B-B520-8FB1A7178807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37E242C-534A-441B-B520-8FB1A7178807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37E242C-534A-441B-B520-8FB1A7178807}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
