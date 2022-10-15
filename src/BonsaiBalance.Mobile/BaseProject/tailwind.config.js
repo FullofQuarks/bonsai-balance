@@ -9,7 +9,7 @@ const customTheme = {
   'danger-dark': colors.red[700],
 }
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {},
   },
