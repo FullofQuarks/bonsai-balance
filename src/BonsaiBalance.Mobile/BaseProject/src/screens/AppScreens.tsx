@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeNavigator from '../features/Home/HomeNavigator'
+import BalanceNavigator from '../features/Balance/BalanceNavigator'
 /**
  * TODO: Rest of Navigatable screens here.
  * Inbox, Learn, More, Balance, whatever
@@ -13,6 +14,7 @@ import {
 
 export type AppTabsParamList = {
     HomeNavigator: undefined
+    BalanceNavigator: undefined
 }
 
 const Tab = createBottomTabNavigator<AppTabsParamList>()
@@ -28,6 +30,16 @@ const AppScreens = () => {
                         title: 'Home', 
                         tabBarIcon: ({ color, size }) =>  (
                         <HomeIcon color={color} size={size} />
+                        ),
+                    }}
+                />
+                <Tab.Screen 
+                    name="BalanceNavigator"
+                    component={BalanceNavigator} 
+                    options={{ 
+                        title: 'Balance', 
+                        tabBarIcon: ({ color, size }) =>  (
+                        <BookOpenIcon color={color} size={size} />
                         ),
                     }}
                 />
